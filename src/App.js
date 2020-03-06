@@ -8,7 +8,7 @@ function App() {
       <Navigation />
       {
         /*<Imagelink_formation />
-        <Facerecognition />
+        <Facerecognition /> */
       }
     </div>
   );
