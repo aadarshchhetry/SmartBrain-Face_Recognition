@@ -1,6 +1,7 @@
 import React from 'react';
+import Logo from './components/Logo/Logo'
 import Navigation from './components/Navigation/Navigation';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
@@ -8,8 +9,9 @@ function App() {
       <Navigation />
       {
         /*<Imagelink_formation />
-        <Facerecognition /> */
+          <Facerecognition /> */
       }
+      <Logo />
     </div>
   );
 }
