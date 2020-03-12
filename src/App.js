@@ -5,6 +5,7 @@ import "./App.css";
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Particles from 'react-particles-js';
+import ImageFile from '/components/ImageFile/ImageFile'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Logo />
       <Rank />
       <ImageLinkForm />
+      <ImageFile />
     </div>
   );
 }

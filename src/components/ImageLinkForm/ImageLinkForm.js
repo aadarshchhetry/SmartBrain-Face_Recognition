@@ -8,7 +8,7 @@ const ImageLinkForm = () => {
                 <form class="form justify-content-center" >
                     <label><h3>Please paste image link here</h3></label>
                     <input type="text" class="form-control mb-2 mr-sm-2" id="imagelinkform" placeholder="paste link here"></input>
-                    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-2">Detect</button>
                 </form>
             </div>
         </nav>
