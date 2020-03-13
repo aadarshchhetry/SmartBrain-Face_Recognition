@@ -6,7 +6,7 @@ import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Particles from 'react-particles-js';
 import ImageFile from './components/ImageFile/ImageFile';
-const Clarifai = require('clarifai');
+import Clarifai from 'clarifai';
 // initialize with your api key. This will also work in your browser via http://browserify.org/
 
 const app = new Clarifai.App({
@@ -29,23 +29,25 @@ class App extends Component {
 
   OnSubmitButton = () =>{
     this.setState({imageURL: this.state.input})
-    app.models.predict("a403429f2ddf4b49b307e318f00e528b", this.state.imageURL).then(
-      function(response) {
-        // do something with response
-      },
-      function(err) {
-        // there was an error
-      }
-    );
+    app.models
+      .predict(Clarifai.FACE_DETECT_MODEL, 
+        this.state.input).then(
+          function(response) {
+            console.log(response.outputs[0].data.regions[0].region_info.bounding_box)
+          },
+          function(err) {
+            console.log("no faces")
+          }
+      );
   }
 
   render(){
     return (
       <div className= "App">
         <Particles className="particles"/>
-        {/* <Navigation /> not using sign in and signout till now */}
+        {/* <Navigation /> */}
         <Logo />
-        {/* <Rank /> not using rank now */} 
+        {/* <Rank />  */}
         <ImageLinkForm 
           OnInputChange= {this.OnInputChange}
           OnSubmitButton= {this.OnSubmitButton} 
