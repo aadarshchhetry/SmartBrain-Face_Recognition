@@ -1,9 +1,10 @@
 import React from 'react';
+import './ImageFile.css'
 
-const ImageFile = () => {
+const ImageFile = ({imageURL}) => {
     return (
         <nav>
-            <img className= "sizeofimg" alt='' src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"/>
+            <img className= "sizeofimg" alt='' src={imageURL}/>
 
         </nav>
     );
