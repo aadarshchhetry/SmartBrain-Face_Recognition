@@ -12,7 +12,7 @@ class App extends Component {
     super()
     this.state = ''
   }
-  onInputChange = (event) => {
+  OnInputChange = (event) => {
     console.log(event.target.value)
   }
   OnSubmitButton = () =>{
