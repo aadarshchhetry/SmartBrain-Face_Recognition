@@ -23,6 +23,7 @@ class App extends Component {
   }
 
   OnInputChange = (event) => {
+    event.preventDefault();
     this.setState({input: event.target.value});
   }
 
@@ -42,9 +43,9 @@ class App extends Component {
     return (
       <div className= "App">
         <Particles className="particles"/>
-        <Navigation />
+        {/* <Navigation /> not using sign in and signout till now */}
         <Logo />
-        <Rank />
+        {/* <Rank /> not using rank now */} 
         <ImageLinkForm 
           OnInputChange= {this.OnInputChange}
           OnSubmitButton= {this.OnSubmitButton} 
