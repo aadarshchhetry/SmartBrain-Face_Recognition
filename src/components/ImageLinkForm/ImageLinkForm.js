@@ -9,7 +9,7 @@ const ImageLinkForm = ({OnInputChange, OnSubmitButton}) => {
                     <label><h3>Please paste image link here</h3></label>
                     <input type="text"
                             className="form-control mb-2 mr-sm-2"
-                            d="imagelinkform"
+                            id="imagelinkform"
                             placeholder="paste link here"
                             onChange={OnInputChange}>
                     </input>

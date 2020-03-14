@@ -19,6 +19,7 @@ class App extends Component {
     this.state = {
       input: '',
       imageURL: '',
+      box: {},
     }
   }
 
@@ -26,33 +27,50 @@ class App extends Component {
     event.preventDefault();
     this.setState({input: event.target.value});
   }
+  facePoints = (data) => {
+    const boundingbox = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.getElementById('imagesize');
+    const width = Number(image.width);
+    const height = Number(image.height);
+    console.log(width,height)
+    return{
+      p1: boundingbox.left_col * width,
+      p2: boundingbox.top_row * height,
+      p3: width - (boundingbox.right_col * width),
+      p4: height - (boundingbox.bottom_row * height),
+    }
+  }
+
+  facebox = (boxx) =>{
+    console.log(boxx);
+    this.setState({box: boxx});
+  }
 
   OnSubmitButton = () =>{
     this.setState({imageURL: this.state.input})
     app.models
-      .predict(Clarifai.FACE_DETECT_MODEL, 
-        this.state.input).then(
-          function(response) {
-            console.log(response.outputs[0].data.regions[0].region_info.bounding_box)
-          },
-          function(err) {
-            console.log("no faces")
-          }
-      );
+      .predict(
+        Clarifai.FACE_DETECT_MODEL, //Model used 
+        this.state.input //URL for the image
+      )
+      .then(response => this.facebox(this.facePoints(response)));
   }
 
   render(){
     return (
       <div className= "App">
         <Particles className="particles"/>
-        {/* <Navigation /> */}
+        <Navigation />
         <Logo />
-        {/* <Rank />  */}
+        <Rank />
         <ImageLinkForm 
           OnInputChange= {this.OnInputChange}
           OnSubmitButton= {this.OnSubmitButton} 
         />
-        <ImageFile imageURL= {this.state.imageURL} />
+        <ImageFile 
+          box= {this.state.box}
+          imageURL= {this.state.imageURL}
+        />
       </div>
     );
   }

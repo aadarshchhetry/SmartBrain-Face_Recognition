@@ -1,5 +1,20 @@
-img{
+#imagesize{
     width: 300px;
     height: auto;
-    margin: auto;
+}
+.center{
+    position: relative;
+    width: 300px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.facedetect{
+    box-shadow: 0 0 0 3px #149df2 inset;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 255, 0.11);
+    cursor: pointer;
 }
